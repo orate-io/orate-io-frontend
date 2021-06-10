@@ -2,6 +2,10 @@
 
 Frontend of orate-io app
 
+## Required Dependencies
+
+TBD
+
 ## Available Scripts
 
 In the project directory, you can run:
