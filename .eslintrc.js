@@ -4,7 +4,8 @@ module.exports = {
     commonjs: true,
     es2021: true,
     browser: true,
-    jest: true
+    jest: true,
+    'cypress/globals': true
   },
   extends: [
     'eslint:recommended',
@@ -17,15 +18,35 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: [
+    'react', 'jest', 'cypress'
+  ],
   rules: {
-    indent: ['warn', 2],
-    'linebreak-style': ['warn', 'unix'],
-    quotes: ['warn', 'single'],
-    semi: ['warn', 'never'],
+    indent: [
+      'warn',
+      2
+    ],
+    'linebreak-style': [
+      'warn',
+      'unix'
+    ],
+    quotes: [
+      'warn',
+      'single'
+    ],
+    semi: [
+      'warn',
+      'never'
+    ],
     'no-trailing-spaces': 'warn',
-    'object-curly-spacing': ['warn', 'always'],
-    'arrow-spacing': ['warn', { before: true, after: true }],
+    'object-curly-spacing': [
+      'warn',
+      'always'
+    ],
+    'arrow-spacing': [
+      'warn',
+      { before: true, after: true }
+    ],
     'react/react-in-jsx-scope': 'off'
   },
 }
