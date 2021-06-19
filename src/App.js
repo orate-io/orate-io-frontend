@@ -1,6 +1,9 @@
+/**
+ * @file The top level of React DOM of the application.
+ */
 import './App.css'
 
-function App() {
+const App = () => {
   return (
     <p>Hello World!</p>
   )
