@@ -1,9 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { signup } from '../reducers/accountReducer'
+import userService from '../services/userService'
 
 const Signup = () => {
-  const dispatch = useDispatch()
   const handleSubmit = async (event) => {
     event.preventDefault()
     const username = event.target.username.value
@@ -20,8 +18,7 @@ const Signup = () => {
       email: email,
       password: password
     }
-    console.log(signupObj)
-    dispatch(signup(signupObj))
+    await userService.signupReq(signupObj)
 
     // dispatch(login(event))
   }

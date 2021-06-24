@@ -16,7 +16,6 @@ export const loginReducer = (state = {  }, action) => {
 
 export const login = (newObj) => {
   console.log('LOGIN')
-  console.log(newObj)
   return async dispatch => {
     const loginReq = await userService.loginReq(newObj)
     console.log(loginReq)
