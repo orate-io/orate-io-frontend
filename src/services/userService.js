@@ -1,6 +1,16 @@
+/**
+ * @file UserService contains all the http requests to the backend.
+ * @author Yacine Saoudi
+ */
 import axios from 'axios'
 
-// const baseUrl = 'http://localhost:3001/'
+const baseUrl = 'http://localhost:3001/'
+
+let token = null
+
+const setToken = newToken => {
+  token = `bearer ${newToken}`
+}
 
 /**
  * Post request to login url.
@@ -11,9 +21,9 @@ import axios from 'axios'
  */
 const loginReq = async (loginObject) => {
   console.log(loginObject)
-  const response = await axios.post('http://localhost:3001/login', loginObject)
+  const response = await axios.post(`${baseUrl}login`, loginObject)
   console.log(response.data)
-  return loginObject
+  return response.data
 }
 /**
  * Post request to signup url.
@@ -23,9 +33,9 @@ const loginReq = async (loginObject) => {
  * @returns {object} LoginObject.
  */
 const signupReq = async (signupObject) => {
-  const response = await axios.post('http://localhost:3001/signup', signupObject)
+  const response = await axios.post(`${baseUrl}signup`, signupObject)
   console.log(response.data)
   return response.data
 }
 
-export default { loginReq, signupReq }
+export default { loginReq, signupReq, setToken }

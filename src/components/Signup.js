@@ -1,26 +1,44 @@
+/**
+ * @file Signup component, user can enter their info into the fields and the component will then add their account to the database using
+ * a post request.
+ * @author Yacine Saoudi
+ */
 import React from 'react'
 import userService from '../services/userService'
 
 const Signup = () => {
+  /**.
+   * @method handleSubmit - takes data from the forms, cretes an obejct with it, then directly makes a signup request using the user
+   * service.
+   *
+   * @param event used to prevent the default action on button press; stops the page from refreshing too soon.
+   */
   const handleSubmit = async (event) => {
+
     event.preventDefault()
+
     const username = event.target.username.value
     const email = event.target.email.value
     const password = event.target.password.value
     const passwordResub = event.target.passwordResub.value
 
+    event.target.username.value = ''
+    event.target.email.value = ''
+    event.target.password.value = ''
+    event.target.passwordResub.value = ''
+
     if (password !== passwordResub){
       console.log('YOUR PASSWORDS DO NOT MATCH')
     }
-
-    const signupObj = {
-      username: username,
-      email: email,
-      password: password
+    else {
+      const signupObj = {
+        username: username,
+        email: email,
+        password: password
+      }
+      await userService.signupReq(signupObj)
     }
-    await userService.signupReq(signupObj)
 
-    // dispatch(login(event))
   }
   return(
     <form onSubmit={handleSubmit} >
@@ -34,6 +52,7 @@ const Signup = () => {
           }}
         />
       </div>
+
       <div>
         email:
         <input
@@ -44,6 +63,7 @@ const Signup = () => {
           }}
         />
       </div>
+
       <div>
         password:
         <input
@@ -54,6 +74,7 @@ const Signup = () => {
           }}
         />
       </div>
+
       <div>
         password resubmit:
         <input
@@ -64,6 +85,7 @@ const Signup = () => {
           }}
         />
       </div>
+
       <button type = "submit">sign up</button>
     </form>
   )
