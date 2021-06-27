@@ -24,6 +24,11 @@ module.exports = {
   plugins: [
     'react', 'jest', 'cypress', 'jsdoc'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
     'jsdoc/check-access': 1,
     'jsdoc/check-alignment': 1,
