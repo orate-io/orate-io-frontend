@@ -1,6 +1,5 @@
 /**
  * @file Store is where the middleware and combined reducers are added onto the reducers.
- * @author Yacine Saoudi
  */
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'

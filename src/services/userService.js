@@ -21,7 +21,7 @@ const setToken = (newToken) => {
  * Post request to login url.
  *
  * @function
- * @param {object} loginObject - Username and password that user input.
+ * @param {object} loginObject Username and password that user input.
  * @returns {object} LoginObject.
  */
 const loginReq = async (loginObject) => {
@@ -32,7 +32,7 @@ const loginReq = async (loginObject) => {
  * Post request to signup url.
  *
  * @function
- * @param {object} signupObject - Username, password, and email that user input.
+ * @param {object} signupObject Username, password, and email that user input.
  * @returns {object} LoginObject.
  */
 const signupReq = async (signupObject) => {
