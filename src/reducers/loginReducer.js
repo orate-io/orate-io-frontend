@@ -2,7 +2,6 @@
  * @file LoginReducer contains all the reducers and action creators for the login functions.
  */
 import userService from '../services/userService'
-
 /**
  * LoginReducer If the case is type 'LOGIN' then it takes the token received from the backend, and sets the token
  * to the state. Case 'LOGOUT' sets the state to empty.
@@ -13,7 +12,6 @@ import userService from '../services/userService'
  */
 export const loginReducer = (state = { }, action) => {
   let newState = state
-  console.log(action.loginReq)
   switch(action.type){
   case 'LOGIN':
     newState = action.loginReq.token
@@ -27,7 +25,6 @@ export const loginReducer = (state = { }, action) => {
     return state
   }
 }
-
 /**
  * Login Takes the object received and sends a post request to the login service where a token is received.
  * The token is stored in the local storage, and dispatched to the reducer.
@@ -47,7 +44,6 @@ export const login = (newObj) => {
     })
   }
 }
-
 /**
  * Logout removes the logged user from local storage and sends a logout dispatch.
  *
