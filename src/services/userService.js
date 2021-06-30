@@ -1,15 +1,20 @@
 /**
  * @file UserService contains all the http requests to the backend.
- * @author Yacine Saoudi
  */
 import axios from 'axios'
 
 const baseUrl = 'http://localhost:3001/'
 
+// eslint-disable-next-line no-unused-vars
 let token = null
 
-const setToken = newToken => {
-  token = `bearer ${newToken}`
+const setToken = (newToken) => {
+  if (newToken){
+    token = `bearer ${newToken}`
+  }
+  else {
+    token = null
+  }
 }
 
 /**
@@ -20,9 +25,7 @@ const setToken = newToken => {
  * @returns {object} LoginObject.
  */
 const loginReq = async (loginObject) => {
-  console.log(loginObject)
   const response = await axios.post(`${baseUrl}login`, loginObject)
-  console.log(response.data)
   return response.data
 }
 /**
@@ -34,7 +37,6 @@ const loginReq = async (loginObject) => {
  */
 const signupReq = async (signupObject) => {
   const response = await axios.post(`${baseUrl}signup`, signupObject)
-  console.log(response.data)
   return response.data
 }
 
