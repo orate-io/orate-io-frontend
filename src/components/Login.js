@@ -1,18 +1,17 @@
 /**
  * @file Login component, takes data from form when submitted and sends a dispatch to the login reducer, then sets local storage
  * to the token.
- * @author Yacine Saoudi
  */
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../reducers/loginReducer'
+import { login, logout } from '../reducers/loginReducer'
 
 const Login = () => {
   const dispatch = useDispatch()
-  /**.
-   * @method handleSubmit - takes data from the forms, cretes an obejct with it, then sends it to the login reducer to make a request.
+  /**
+   * Takes data from the forms, cretes an obejct with it, then sends it to the login reducer to make a request.
    *
-   * @param event used to prevent the default action on button press; stops the page from refreshing too soonW
+   * @param {object} event Prevents page from refreshing prematurely.
    */
   const handleSubmit = async (event) => {
 
@@ -32,37 +31,46 @@ const Login = () => {
     dispatch(login(newObj))
   }
   /**
-   * @function useEffect - on page start, check if the user is logged in using the token.
+   * Sends a logout dispatch to the action creator.
    */
-  useEffect(() => {
-    const loggedIn = window.localStorage.getItem('loggedUser')
-    if (loggedIn){
-      console.log(loggedIn)
-    }
-  })
+  const logoutHandler = async () => {
+    dispatch(logout('empty'))
+  }
 
-  return(
-    <form onSubmit={handleSubmit}>
-
+  /* renders a logout button if logged in, login form if otherwise */
+  let loggedIn = window.localStorage.getItem('loggedUser')
+  if (loggedIn){
+    return(
       <div>
-          username:
-        <input
-          type = 'text'
-          name = 'username'
-        />
+        <button type="submit" onClick={logoutHandler} > Logout </button>
       </div>
+    )
+  }
+  else {
+    return(
+      <form onSubmit={handleSubmit}>
 
-      <div>
-          password:
-        <input
-          type = 'password'
-          name = 'password'
-        />
-      </div>
+        <div>
+            username:
+          <input
+            type = 'text'
+            name = 'username'
+          />
+        </div>
 
-      <button type = "submit">submit</button>
-    </form>
-  )
+        <div>
+            password:
+          <input
+            type = 'password'
+            name = 'password'
+          />
+        </div>
+
+        <button type = "submit">submit</button>
+      </form>
+    )
+  }
+
 }
 
 export default Login

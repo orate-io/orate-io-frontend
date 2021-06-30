@@ -1,17 +1,16 @@
 /**
  * @file Signup component, user can enter their info into the fields and the component will then add their account to the database using
  * a post request.
- * @author Yacine Saoudi
  */
 import React from 'react'
 import userService from '../services/userService'
 
 const Signup = () => {
-  /**.
-   * @method handleSubmit - takes data from the forms, cretes an obejct with it, then directly makes a signup request using the user
+  /**
+   * Takes data from the forms, cretes an obejct with it, then directly makes a signup request using the user
    * service.
    *
-   * @param event used to prevent the default action on button press; stops the page from refreshing too soon.
+   * @param {object} event Used to prevent the default action on button press; stops the page from refreshing too soon.
    */
   const handleSubmit = async (event) => {
 
@@ -28,7 +27,8 @@ const Signup = () => {
     event.target.passwordResub.value = ''
 
     if (password !== passwordResub){
-      console.log('YOUR PASSWORDS DO NOT MATCH')
+      /* palceholder */
+      console.log('PASSWORDS DONT MATCH')
     }
     else {
       const signupObj = {
@@ -40,16 +40,14 @@ const Signup = () => {
     }
 
   }
-  return(
+  return (
     <form onSubmit={handleSubmit} >
       <div>
         username:
         <input
           type = 'text'
           name = 'username'
-          onChange = {({ target }) => {
-            console.log(target.value)
-          }}
+
         />
       </div>
 
@@ -58,9 +56,7 @@ const Signup = () => {
         <input
           type = 'text'
           name = 'email'
-          onChange = {({ target }) => {
-            console.log(target.value)
-          }}
+
         />
       </div>
 
@@ -69,9 +65,6 @@ const Signup = () => {
         <input
           type = 'password'
           name = 'password'
-          onChange = {({ target }) => {
-            console.log(target.value)
-          }}
         />
       </div>
 
@@ -80,9 +73,6 @@ const Signup = () => {
         <input
           type = 'password'
           name = 'passwordResub'
-          onChange = {({ target }) => {
-            console.log(target.value)
-          }}
         />
       </div>
 
