@@ -1,12 +1,16 @@
 /**
- * @file The top level of React DOM of the application.
+ * @file App is where all the components are called.
  */
 import React from 'react'
-import './App.css'
+import Login from './components/Login.js'
+import Signup from './components/Signup.js'
 
 const App = () => {
   return (
-    <p>Hello World!</p>
+    <div>
+      <Login />
+      <Signup />
+    </div>
   )
 }
 
