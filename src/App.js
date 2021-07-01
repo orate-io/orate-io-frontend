@@ -8,7 +8,6 @@ import Signup from './components/Signup.js'
 const App = () => {
   return (
     <div>
-      <p>Hello World!</p>
       <Login />
       <Signup />
     </div>
