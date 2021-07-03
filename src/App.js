@@ -1,8 +1,16 @@
-import './App.css'
+/**
+ * @file App is where all the components are called.
+ */
+import React from 'react'
+import Login from './components/Login.js'
+import Signup from './components/Signup.js'
 
-function App() {
+const App = () => {
   return (
-    <p>Hello World!</p>
+    <div>
+      <Login />
+      <Signup />
+    </div>
   )
 }
 
