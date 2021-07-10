@@ -2,14 +2,12 @@
  * @file Signup component, user can enter their info into the fields and the component will then add their account to the database using
  * a post request.
  */
-import React, { useState } from 'react'
+import React from 'react'
 import userService from '../services/userService'
 import './../css/Login.css';
 
 const Signup = () => {
-    const [signinVisible, setSigninVisible] = useState(false)
-    const hideWhenVisible = { display: signinVisible ? 'none' : '' }
-    const showWhenVisible = { display: signinVisible ? '' : 'none' }
+
     /**
      * Takes data from the forms, cretes an obejct with it, then directly makes a signup request using the user
      * service.
@@ -46,11 +44,8 @@ const Signup = () => {
     }
     return (
         <div>
-            <div style={hideWhenVisible}>
-                <br></br>
-                <button onClick={() => setSigninVisible(true)} id="secondaryButton">Sign Up</button>
-            </div>
-            <div style={showWhenVisible}>
+
+            <div>
                 <form onSubmit={handleSubmit} >
                     <div>
                         <input
@@ -91,7 +86,7 @@ const Signup = () => {
                     <button type="submit">Sign Up</button>
                 </form>
                 <br></br>
-                <button onClick={() => setSigninVisible(false)} id="secondaryButton">Cancel</button>
+
             </div>
         </div>
     )

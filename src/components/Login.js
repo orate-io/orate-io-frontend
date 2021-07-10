@@ -2,7 +2,7 @@
  * @file Login component, takes data from form when submitted and sends a dispatch to the login reducer, then sets local storage
  * to the token.
  */
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login, logout } from '../reducers/loginReducer'
 import './../css/Login.css';
@@ -11,9 +11,6 @@ import './../css/Login.css';
 
 const Login = () => {
 
-    const [loginVisible, setLoginVisible] = useState(false)
-    const hideWhenVisible = { display: loginVisible ? 'none' : '' }
-    const showWhenVisible = { display: loginVisible ? '' : 'none' }
 
     const dispatch = useDispatch()
     /**
@@ -58,42 +55,34 @@ const Login = () => {
     else {
         return (
             <div>
-                <p>Orate IO</p>
-                <div style={hideWhenVisible}>
-                    <button onClick={() => setLoginVisible(true)}>Log In</button>
-                </div>
-                <div style={showWhenVisible}>
-                    <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
 
-                        <div>
+                    <div>
 
-                            <input
-                                type='text'
-                                placeholder='Username'
-                                id="textbox"
-                            />
-                        </div>
+                        <input
+                            type='text'
+                            placeholder='Username'
+                            id="textbox"
+                        />
+                    </div>
 
-                        <div>
-                            <input
-                                type='password'
-                                placeholder='Password'
-                                id="textbox"
-                            />
-                        </div>
+                    <div>
+                        <input
+                            type='password'
+                            placeholder='Password'
+                            id="textbox"
+                        />
+                    </div>
 
+                    <br></br>
+                    <button id="submit" type="submit">Log In</button>
+                    <div>
                         <br></br>
-                        <button id="submit" type="submit">Log In</button>
-                        <div>
-                            <br></br>
-                        </div>
+                    </div>
+                </form>
 
+            </div>
 
-                    </form>
-                    <button onClick={() => setLoginVisible(false)} id="secondaryButton">Cancel</button>
-                </div>
-
-            </div >
         )
     }
 
