@@ -1,0 +1,56 @@
+body {
+    background: url(./test4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+  }
+
+button{
+    background-color: #E78F8F ;
+    border-radius: 10px;
+    border:none;
+    color: white;
+    font-family: Candara; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 26.4px; 
+    width: 240px;
+    height: 67px;
+}
+
+#secondaryButton{
+    background-color: #FF5F58;
+}
+
+
+#textbox{
+    
+    border-radius: 10px;
+    border: none;
+    width: 240px;
+    height: 41px;
+}
+
+input {
+    text-align: center;
+  }
+  
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+  
+
+h1 {
+    background-color: rgba(193,145,145,0.3);
+    padding: 10px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    font-family: Candara; font-size: 80px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 26.4px; 
+    text-align: center;
+    width: 440px;
+    height: auto;
+    margin: 10px;
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
