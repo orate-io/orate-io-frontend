@@ -26,6 +26,6 @@ if: github.event.pull_request.merged
         if: github.event.pull_request.merged
         uses: actions/checkout@v1
       - name: send-request
-        run: curl -i -H "Content-Type: application/json" -d "{\"module\":\"frontend\"}"" ${{ secrets.DEPLOY_URL }}
+        run: curl -i -H "Content-Type: application/json" -d "{\"module\":\"frontend\"}" ${{ secrets.DEPLOY_URL }}
 with:
 ref: master
