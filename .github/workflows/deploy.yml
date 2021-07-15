@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
 
 name: Deploy
 
-# Controls when the workflow will run
 on:
   workflow_dispatch:
   pull_request:
@@ -10,9 +8,7 @@ on:
     branches:
       - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   deploy:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
@@ -22,5 +18,5 @@ jobs:
         uses: actions/checkout@v1
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: https://hookb.in/Xkk01PDgdOFDYMQQY8VG
+          url: ${{ secrets.DEPLOY_URL }}
           data: "{'module':'frontend'}"
