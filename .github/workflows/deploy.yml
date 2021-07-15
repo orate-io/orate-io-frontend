@@ -23,6 +23,7 @@ jobs:
       - name: checkout
         if: github.event.pull_request.merged
         uses: actions/checkout@v1
-        uses: wei/curl@v1
+        uses: muinmomin/webhook-action@v1.0.0
         with:
-          args: -X POST -H "Content-Type: application/json" -d "{\"module\":\"frontend\"}" https://hookb.in/8PPLjn69ZkCpLGKKLn8O
+          url: https://hookb.in/wNNL6gVRXLiqJmrrJlYO
+          data: "{'module':'frontend'}"
