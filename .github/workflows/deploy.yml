@@ -23,5 +23,6 @@ jobs:
       - name: checkout
         if: github.event.pull_request.merged
         uses: actions/checkout@v1
-      - name: send-request
-        run: curl -i -X POST -H "Content-Type: application/json" -d "{\"module\":\"frontend\"}" https://hookb.in/8PPLjn69ZkCpLGKKLn8O
+        uses: wei/curl@v1
+        with:
+          args: -i -X POST -H "Content-Type: application/json" -d "{\"module\":\"frontend\"}" https://hookb.in/8PPLjn69ZkCpLGKKLn8O
