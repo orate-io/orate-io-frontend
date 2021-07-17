@@ -11,12 +11,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged
     steps:
-      - name: checkout
+      - uses: actions/checkout@v2
+      - name: POST
         if: github.event.pull_request.merged
-        uses: actions/checkout@v1
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ secrets.DEPLOY_URL }}
-          data: "{'module':'frontend'}"
+          data: "{\"module\":\"frontend\"}"
