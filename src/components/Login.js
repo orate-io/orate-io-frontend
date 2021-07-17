@@ -5,7 +5,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login, logout } from '../reducers/loginReducer'
-import './../css/Login.css';
+import './../css/Login.css'
 
 const Login = () => {
 
