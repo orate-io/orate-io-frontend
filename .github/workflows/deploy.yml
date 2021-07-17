@@ -15,7 +15,6 @@ jobs:
     steps:
       - name: checkout
         if: github.event.pull_request.merged
-        uses: actions/checkout@v1
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ secrets.DEPLOY_URL }}
