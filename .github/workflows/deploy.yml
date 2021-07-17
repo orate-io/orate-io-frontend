@@ -16,5 +16,5 @@ jobs:
       - name: POST
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: ${{ secrets.DEPLOY_URL }}
-          data: "{'module':'frontend'}"
+          url: https://hookb.in/Xkk01PDgdOFDYMQQY8VG
+          data: "{\"module\":\"frontend\"}"
