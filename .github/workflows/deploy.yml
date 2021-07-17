@@ -17,5 +17,5 @@ jobs:
         if: github.event.pull_request.merged
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: ${{  secrets.DEPLOY_URL }}
+          url: ${{ secrets.DEPLOY_URL }}
           data: "{\"module\":\"frontend\"}"
