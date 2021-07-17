@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
     steps:
+      - uses: actions/checkout@v2
       - name: POST
-        if: github.event.pull_request.merged
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ secrets.DEPLOY_URL }}
