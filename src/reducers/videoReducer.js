@@ -11,36 +11,21 @@ import videoServices from '../services/videoServices'
  * @param {string} action S.
  * @returns {object} S.
  */
-export const fileReducer = (state = { }, action) => {
-  let newState = state
+export const videoReducer = (state = [], action) => {
   console.log('ACTION IS', action)
   switch(action.type){
-  case 'SELECT':
-    newState = action.fileObj
-    return newState
+  case 'INIT':
+    return action.vidList
   default:
     return state
   }
 }
 
-/**.
- * A
- *
- * @param fileObj
- * @returns {object} a
- */
-export const fileSelect = (fileObj) => {
-  return async dispatch => {
-    dispatch({
-      type:'SELECT',
-      fileObj
-    })
-  }
-}
-
 export const fileInit = () => {
+  console.log('file init')
   return async dispatch => {
     const vidList = videoServices.getAll()
+    console.log(vidList)
     dispatch({
       type:'INIT',
       vidList
@@ -49,5 +34,6 @@ export const fileInit = () => {
 }
 
 
-export default fileReducer
+export default videoReducer
+
 

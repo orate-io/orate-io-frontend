@@ -3,11 +3,13 @@
  * to the token.
  */
 import React  from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from '../reducers/loginReducer'
 
 const Login = () => {
   const dispatch = useDispatch()
+  const getUser = useSelector(state => state.login)
+
   /**
    * Takes data from the forms, cretes an obejct with it, then sends it to the login reducer to make a request.
    *
@@ -39,7 +41,7 @@ const Login = () => {
 
   /* renders a logout button if logged in, login form if otherwise */
   let loggedIn = window.localStorage.getItem('loggedUser')
-  if (loggedIn){
+  if (loggedIn && getUser!==null){
     return(
       <div>
         <button type="submit" onClick={logoutHandler} > Logout </button>

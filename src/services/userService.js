@@ -12,11 +12,19 @@ let token = null
 
 const setToken = (newToken) => {
   if (newToken){
-    token = `bearer ${newToken}`
+    token = `Bearer ${newToken}`
+    window.localStorage.setItem(
+      'loggedUser', token
+    )
   }
   else {
     token = null
   }
+  console.log(token)
+}
+
+const getToken = () => {
+  return token
 }
 
 /**
@@ -42,4 +50,5 @@ const signupReq = async (signupObject) => {
   return response.data
 }
 
-export default { loginReq, signupReq, setToken }
+
+export default { loginReq, signupReq, setToken, getToken }
