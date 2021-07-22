@@ -12,7 +12,6 @@ import videoServices from '../services/videoServices'
  * @returns {object} S.
  */
 export const videoReducer = (state = [], action) => {
-  console.log('ACTION IS', action)
   switch(action.type){
   case 'INIT':
     return action.vidList
@@ -22,10 +21,8 @@ export const videoReducer = (state = [], action) => {
 }
 
 export const fileInit = () => {
-  console.log('file init')
   return async dispatch => {
     const vidList = videoServices.getAll()
-    console.log(vidList)
     dispatch({
       type:'INIT',
       vidList

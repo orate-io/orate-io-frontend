@@ -20,7 +20,6 @@ const setToken = (newToken) => {
   else {
     token = null
   }
-  console.log(token)
 }
 
 const getToken = () => {

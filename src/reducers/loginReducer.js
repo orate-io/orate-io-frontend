@@ -13,7 +13,6 @@ import userService from '../services/userService'
  */
 export const loginReducer = (state = { }, action) => {
   let newState = state
-  console.log('ACTION IS', action)
   switch(action.type){
   case 'LOGIN':
     newState = action.loginReq.token

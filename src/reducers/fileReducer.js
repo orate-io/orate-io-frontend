@@ -13,7 +13,6 @@ import videoServices from '../services/videoServices'
  */
 export const fileReducer = (state = { }, action) => {
   let newState = state
-  console.log('ACTION IS', action)
   switch(action.type){
   case 'SELECT':
     newState = action.fileObj
@@ -26,7 +25,7 @@ export const fileReducer = (state = { }, action) => {
 /**.
  * A
  *
- * @param fileObj
+ * @param {object} fileObj a
  * @returns {object} a
  */
 export const fileSelect = (fileObj) => {
