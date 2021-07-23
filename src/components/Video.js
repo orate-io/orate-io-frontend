@@ -39,13 +39,7 @@ const Video = () => {
    */
   const onUpload = (event) => {
     event.preventDefault()
-
-    let newFile = getFile
-    const newForm = new FormData()
-
-    newForm.append('file', newFile)
-
-    videoServices.createVid(newForm)
+    videoServices.createVid(event.target.files[0])
   }
 
   /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */

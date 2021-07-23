@@ -18,7 +18,12 @@ const createVid = async (vidObj) => {
   const config = {
     headers: { Authorization: token }
   }
-  const response = await axios.post(`${baseUrl}video`, vidObj, config)
+  const getLinkResponse = await axios.get('/s3Url', config)
+  const url = getLinkResponse.data.url
+  const awsResponse = await axios.put(url, vidObj)
+  /* TODO: Add check that awsResponse is success */
+  const videoUrl = url.split('?')[0]
+  const response = await axios.post(`${baseUrl}video`, videoUrl, config)
   return response
 }
 
