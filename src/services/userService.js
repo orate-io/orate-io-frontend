@@ -9,7 +9,12 @@ const baseUrl = window.env
 
 // eslint-disable-next-line no-unused-vars
 let token = null
-
+/**
+ * Sets token in local storage or deletes it.
+ *
+ * @function
+ * @param {object} newToken Sets the local storage as the given new token, deletes if new token is null.
+ */
 const setToken = (newToken) => {
   if (newToken){
     token = `Bearer ${newToken}`
@@ -20,10 +25,6 @@ const setToken = (newToken) => {
   else {
     token = null
   }
-}
-
-const getToken = () => {
-  return token
 }
 
 /**
@@ -50,4 +51,4 @@ const signupReq = async (signupObject) => {
 }
 
 
-export default { loginReq, signupReq, setToken, getToken }
+export default { loginReq, signupReq, setToken }

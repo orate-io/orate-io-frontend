@@ -16,13 +16,21 @@ const Video = () => {
   useEffect( async () => {
     dispatch(fileInit)
   }, [])
-
+  /**
+   * Dispatches file object the user provides on upload button click. Updates state.
+   *
+   * @param {object} event Prevents page from refreshing prematurely.
+   */
   const handleChange = (event) => {
     event.preventDefault()
 
     dispatch(fileSelect(event.target.files[0]))
   }
-
+  /**.
+   * Sends video to backend in FormData format.
+   *
+   * @param {object} event Prevents page from refreshing prematurely.
+   */
   const onUpload = (event) => {
     event.preventDefault()
 
@@ -33,6 +41,7 @@ const Video = () => {
 
     videoServices.createVid(newForm)
   }
+  /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */
 
   let loggedIn = window.localStorage.getItem('loggedUser')
   if (!loggedIn) {
