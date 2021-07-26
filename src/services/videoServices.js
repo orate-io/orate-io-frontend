@@ -2,8 +2,8 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-const config = require('./../config')
-const baseUrl = config.PORT
+import env from 'react-dotenv'
+const baseUrl = env.URL
 
 const createVid = async (vidObj) => {
   const token = window.localStorage.getItem('loggedUser')
