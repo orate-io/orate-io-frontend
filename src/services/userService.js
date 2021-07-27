@@ -3,7 +3,9 @@
  */
 import axios from 'axios'
 
-const baseUrl = window.env.URL
+const baseUrl = window.env
+  ? window.env.URL
+  : null
 
 // eslint-disable-next-line no-unused-vars
 let token = null
