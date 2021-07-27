@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const baseUrl = window.env
   ? window.env.URL
-  : null
+  : 'http://localhost:3001/'
 
 // eslint-disable-next-line no-unused-vars
 let token = null
