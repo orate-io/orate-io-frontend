@@ -2,15 +2,16 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-import env from 'react-dotenv'
-const baseUrl = env.URL
-/**
- * Post request to /video url.
- *
- * @function
- * @param {object} vidObj Video object the user provided.
- * @returns {object} Response from backend.
- */
+const baseUrl = window.env
+  ? window.env.URL
+  : 'http://localhost:3001/'
+  /**
+   * Post request to /video url.
+   *
+   * @function
+   * @param {object} vidObj Video object the user provided.
+   * @returns {object} Response from backend.
+   */
 const createVid = async (vidObj) => {
   const token = window.localStorage.getItem('loggedUser')
   const config = {

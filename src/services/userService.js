@@ -2,7 +2,6 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-
 const baseUrl = window.env
   ? window.env.URL
   : 'http://localhost:3001/'
