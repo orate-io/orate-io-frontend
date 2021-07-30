@@ -5,12 +5,14 @@ import React, { useEffect } from 'react'
 import {  useSelector, useDispatch } from 'react-redux'
 import { fileInit, fileSelect } from '../reducers/fileReducer'
 import videoServices from '../services/videoServices'
+// eslint-disable-next-line no-unused-vars
 import VidElement from './VidElement'
 
 const Video = () => {
   const dispatch = useDispatch()
   /* Gets the state from the combined reducer. */
   const getFile = useSelector(state => state.file)
+  // eslint-disable-next-line no-unused-vars
   const getVids = useSelector(state => state.video)
 
   useEffect( async () => {
@@ -56,9 +58,9 @@ const Video = () => {
             UPLOAD
           </button>
         </div>
-        <p>here</p>
+        {/*         <p>here</p>
         {getVids.map(video =>
-          <VidElement key={video.id} video={video} />)}
+          <VidElement key={video.id} video={video} />)} */}
       </div>
     )
   }
