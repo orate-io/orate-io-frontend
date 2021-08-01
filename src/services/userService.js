@@ -37,6 +37,7 @@ const loginReq = async (loginObject) => {
   const response = await axios.post(`${baseUrl}login`, loginObject)
   return response.data
 }
+
 /**
  * Post request to signup url.
  *
@@ -48,6 +49,5 @@ const signupReq = async (signupObject) => {
   const response = await axios.post(`${baseUrl}signup`, signupObject)
   return response.data
 }
-
 
 export default { loginReq, signupReq, setToken }

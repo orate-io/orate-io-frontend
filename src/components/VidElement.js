@@ -14,4 +14,3 @@ const VidElement = ({ video }) => {
 }
 
 export default VidElement
-

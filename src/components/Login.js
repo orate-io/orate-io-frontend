@@ -16,7 +16,6 @@ const Login = () => {
    * @param {object} event Prevents page from refreshing prematurely.
    */
   const handleSubmit = async (event) => {
-
     event.preventDefault()
 
     const username = event.target.username.value
@@ -32,6 +31,7 @@ const Login = () => {
 
     dispatch(login(newObj))
   }
+
   /**
    * Sends a logout dispatch to the action creator.
    */

@@ -6,7 +6,7 @@ const baseUrl = window.env
   ? window.env.URL
   : 'http://localhost:3001/'
   /**
-   * Post request to /video url.
+   * Post request to /video url. Sends video in DataForm format.
    *
    * @function
    * @param {object} vidObj Video object the user provided.
@@ -20,6 +20,7 @@ const createVid = async (vidObj) => {
   const response = await axios.post(`${baseUrl}video`, vidObj, config)
   return response
 }
+
 /**
  * Get request to /video URL.
  *
