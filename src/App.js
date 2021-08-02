@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import Login from './components/Login.js'
+import PageNotFound from './components/PageNotFound.js'
 import Signup from './components/Signup.js'
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
     <div>
       <Login />
       <Signup />
+      <PageNotFound />
     </div>
   )
 }
