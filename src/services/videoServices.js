@@ -5,13 +5,14 @@ import axios from 'axios'
 const baseUrl = window.env
   ? window.env.URL
   : 'http://localhost:3001/'
-  /**
-   * Post request to /video url. Sends video in DataForm format.
-   *
-   * @function
-   * @param {object} vidObj Video object the user provided.
-   * @returns {object} Response from backend.
-   */
+
+/**
+ * Post request to /video url. Sends video in DataForm format.
+ *
+ * @function
+ * @param {object} vidObj Video object the user provided.
+ * @returns {object} Response from backend.
+ */
 const createVid = async (vidObj) => {
   const token = window.localStorage.getItem('loggedUser')
   const config = {

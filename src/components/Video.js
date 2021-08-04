@@ -7,7 +7,11 @@ import { fileInit, fileSelect } from '../reducers/fileReducer'
 import videoServices from '../services/videoServices'
 // eslint-disable-next-line no-unused-vars
 import VidElement from './VidElement'
-
+/**
+ * Deals with user video posting, includes upload button and dispatch method. Also returns the list of videos.
+ *
+ * @returns List of videos user has posted.
+ */
 const Video = () => {
   const dispatch = useDispatch()
   /* Gets the state from the combined reducer. */
@@ -18,6 +22,7 @@ const Video = () => {
   useEffect( async () => {
     dispatch(fileInit)
   }, [])
+
   /**
    * Dispatches file object the user provides on upload button click. Updates state.
    *
@@ -28,7 +33,8 @@ const Video = () => {
 
     dispatch(fileSelect(event.target.files[0]))
   }
-  /**.
+
+  /**
    * Sends video to backend in FormData format.
    *
    * @param {object} event Prevents page from refreshing prematurely.
@@ -43,12 +49,12 @@ const Video = () => {
 
     videoServices.createVid(newForm)
   }
-  /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */
 
+  /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */
   let loggedIn = window.localStorage.getItem('loggedUser')
   if (!loggedIn) {
     return(
-      <p>hi</p>
+      <p>PLease log in first</p>
     )} else {
     return (
       <div>
@@ -58,9 +64,7 @@ const Video = () => {
             UPLOAD
           </button>
         </div>
-        {/*         <p>here</p>
-        {getVids.map(video =>
-          <VidElement key={video.id} video={video} />)} */}
+        {/* TODO, video mapping */}
       </div>
     )
   }

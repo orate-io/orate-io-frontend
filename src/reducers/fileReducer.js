@@ -1,15 +1,13 @@
 /**
- * @file R.
+ * @file Handles all requests pertaining to changing the file state. Allows user to update file state.
  */
 
-import videoServices from '../services/videoServices'
-
 /**
- * F.
+ * File reducer sets the state of the file. Case LOGIN sets the file state as the newly received fileObj.
  *
- * @param {object} state S.
- * @param {string} action S.
- * @returns {object} S.
+ * @param {object} state Initial state is empty.
+ * @param {string} action Imports the file and action type the user posted.
+ * @returns {object} Returns new state.
  */
 export const fileReducer = (state = { }, action) => {
   let newState = state
@@ -22,11 +20,11 @@ export const fileReducer = (state = { }, action) => {
   }
 }
 
-/**.
- * A
+/**
+ * File select action creator allows the user to change the state of the file with the type SELECT.
  *
- * @param {object} fileObj a
- * @returns {object} a
+ * @param {object} fileObj Receives the file as an object.
+ * @returns {object} Dispatches action with the file object and SELECT action type.
  */
 export const fileSelect = (fileObj) => {
   return async dispatch => {
@@ -36,17 +34,6 @@ export const fileSelect = (fileObj) => {
     })
   }
 }
-
-export const fileInit = () => {
-  return async dispatch => {
-    const vidList = videoServices.getAll()
-    dispatch({
-      type:'INIT',
-      vidList
-    })
-  }
-}
-
 
 export default fileReducer
 
