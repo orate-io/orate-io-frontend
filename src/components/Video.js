@@ -7,10 +7,8 @@ import { fileInit, fileSelect } from '../reducers/fileReducer'
 import videoServices from '../services/videoServices'
 // eslint-disable-next-line no-unused-vars
 import VidElement from './VidElement'
-/**
+/*
  * Deals with user video posting, includes upload button and dispatch method. Also returns the list of videos.
- *
- * @returns List of videos user has posted.
  */
 const Video = () => {
   const dispatch = useDispatch()
