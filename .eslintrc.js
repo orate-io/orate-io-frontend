@@ -12,7 +12,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'prettier'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -22,7 +23,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react', 'jest', 'cypress', 'jsdoc'
+    'react', 'jest', 'cypress', 'jsdoc', 'prettier'
   ],
   settings: {
     react: {
@@ -30,6 +31,7 @@ module.exports = {
     }
   },
   rules: {
+    'prettier/prettier': 'error',
     'jsdoc/check-access': 1,
     'jsdoc/check-alignment': 1,
     'jsdoc/check-tag-names': 1,
@@ -61,17 +63,12 @@ module.exports = {
     'jsdoc/require-description': 1,
     'jsdoc/require-description-complete-sentence': 1,
     'jsdoc/check-indentation': 1,
-    'indent': ['warn', 2],
-    'linebreak-style': ['warn', 'unix'],
-    'quotes': ['warn', 'single'],
-    'semi': ['warn', 'never'],
     'no-trailing-spaces': 'warn',
     'object-curly-spacing': ['warn', 'always'],
     'arrow-spacing': ['warn', { 'before': true, 'after': true }],
     'react/react-in-jsx-scope': 'off',
     'comma-spacing': ['warn', { 'before': false, 'after': true }],
     'array-bracket-spacing': ['warn', 'never'],
-    'eol-last': 1,
-    'comma-dangle': ['warn', 'never']
+    'eol-last': 1
   }
 }
