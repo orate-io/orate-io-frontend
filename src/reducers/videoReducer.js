@@ -19,6 +19,7 @@ export const videoReducer = (state = [], action) => {
     return state
   }
 }
+
 /**
  * File init is the action creator that sends a get request for the videos and receives an array that gets dispatched to the reducer.
  *

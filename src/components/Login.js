@@ -41,7 +41,7 @@ const Login = () => {
 
   /* renders a logout button if logged in, login form if otherwise */
   let loggedIn = window.localStorage.getItem('loggedUser')
-  if (loggedIn && getUser!==null){
+  if (loggedIn && (getUser!==null)){
     return(
       <div>
         <button type="submit" onClick={logoutHandler} > Logout </button>
