@@ -37,9 +37,6 @@ export const loginReducer = (state = { }, action) => {
 export const login = (newObj) => {
   return async dispatch => {
     const loginReq = await userService.loginReq(newObj)
-    window.localStorage.setItem(
-      'loggedUser', JSON.stringify(loginReq)
-    )
     dispatch({
       type: 'LOGIN',
       loginReq
