@@ -62,7 +62,7 @@ module.exports = {
     'jsdoc/require-description-complete-sentence': 1,
     'jsdoc/check-indentation': 1,
     'indent': ['warn', 2],
-    'linebreak-style': ['warn', 'unix'],
+    'linebreak-style': ['warn', 'windows'],
     'quotes': ['warn', 'single'],
     'semi': ['warn', 'never'],
     'no-trailing-spaces': 'warn',

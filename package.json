@@ -16,12 +16,13 @@
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "supertest": "^6.1.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
-    "test": "react-dotenv && react-scripts test",
+    "test": "jest --verbose",
     "eject": "react-scripts eject",
     "lint": "eslint ."
   },
@@ -60,6 +61,18 @@
   "react-dotenv": {
     "whitelist": [
       "URL"
+    ]
+  },
+  "jest": {
+    "preset": "react-native",
+    "globals": {
+      "__DEV__": true
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)/"
     ]
   }
 }
