@@ -2,7 +2,7 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-const baseUrl = window.env
+const baseUrl = (window.env && window.env.URL)
   ? window.env.URL
   : 'http://localhost:3001/'
 
@@ -18,7 +18,27 @@ const createVid = async (vidObj) => {
   const config = {
     headers: { Authorization: token }
   }
-  const response = await axios.post(`${baseUrl}video`, vidObj, config)
+
+  /* Get upload URL from the backend */
+  const preUploadResponse = await axios.get(`${baseUrl}s3Url`, config)
+  const url = preUploadResponse.data.url
+  const videoId = preUploadResponse.data.videoId
+
+  /* Upload the file to S3 */
+  try {
+    await axios.put(url, vidObj)
+  } catch (error) {
+    return error.response
+  }
+
+  /* Update the backend with the new s3 data */
+  const postBody = {
+    url: url.split('?')[0],
+    name: vidObj.name,
+    id: videoId
+  }
+  const response = await axios.post(`${baseUrl}video`, postBody, config)
+
   return response
 }
 
