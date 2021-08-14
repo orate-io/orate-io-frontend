@@ -14,8 +14,6 @@ const Video = () => {
   const dispatch = useDispatch()
   /* Gets the state from the combined reducer. */
   const getFile = useSelector(state => state.file)
-  // eslint-disable-next-line no-unused-vars
-  const getVids = useSelector(state => state.video)
 
   /**
    * Dispatches file object the user provides on upload button click. Updates state.
