@@ -1,19 +1,16 @@
 /**
  * @file This is the test file for userService.js
  */
-import userService from './userService'
-import supertest from 'supertest'
-import request from 'supertest'
-import {loginReq} from './userService'
-import {signupReq} from './userService'
+//const request = require('supertest')
+//const userService = require( './userService.js')
+import app from './userService'
 
-
-test('log in post request', () => {
-  request(loginReq).post('http://localhost:3000/login')
-  console.log(request(loginReq))
+test('log in post request', async function() {
+  await app.loginReq({ username: 'asd', password: 'asdasd' }).then((value => {assert (value.status === 200)}))
 })
 
 test('sign up post request', () => {
-  request(signupReq)
+  //request(app.signupReq)
+  // similar as above
 })
 

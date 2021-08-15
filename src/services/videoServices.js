@@ -2,9 +2,7 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-const baseUrl = window.env
-  ? window.env.URL
-  : 'http://localhost:3001/'
+const baseUrl = 'http://localhost:3000/'
 
 /**
  * Post request to /video url. Sends video in DataForm format.
