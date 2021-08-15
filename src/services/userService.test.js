@@ -4,13 +4,14 @@
 //const request = require('supertest')
 //const userService = require( './userService.js')
 import app from './userService'
+const assert = require('assert');
 
 test('log in post request', async function() {
-  await app.loginReq({ username: 'asd', password: 'asdasd' }).then((value => {assert (value.status === 200)}))
+  await app.loginReq({ username: 'Sky', password: '123456' }).then((value => {assert (value === 'OK')}))
 })
 
-test('sign up post request', () => {
-  //request(app.signupReq)
-  // similar as above
+test('sign up post request', async function() {
+  await app.signupReq({ username: 'asd', password: '1231564654' }).then((value => {assert (value === 'OK')}))
+  await app.loginReq({ username: 'asd', password: '1231564654' }).then((value => {assert (value === 'OK')}))
 })
 

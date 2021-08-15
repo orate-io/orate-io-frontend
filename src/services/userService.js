@@ -2,7 +2,9 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = window.env
+  ? window.env.URL
+  : 'http://localhost:3001/'
 
 // eslint-disable-next-line no-unused-vars
 let token = null
