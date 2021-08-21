@@ -53,8 +53,8 @@ const getAll = async () => {
   const config = {
     headers: { Authorization: token }
   }
-  const vidList = await axios.get(`${baseUrl}video`, config)
-  return vidList
+  const response = await axios.get(`${baseUrl}video`, config)
+  return response
 }
 
 export default { createVid, getAll }

@@ -1,9 +1,10 @@
 /**
  * @file Allows user to pick and upload a file to the backend, also displays all the videos the user posted.
  */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fileSelect } from '../reducers/fileReducer'
+import { fileInit } from '../reducers/videoReducer'
 import videoServices from '../services/videoServices'
 import VidElement from './VidElement'
 import { logout } from '../reducers/loginReducer'
@@ -26,6 +27,7 @@ const Video = () => {
    */
   const handleChange = (event) => {
     event.preventDefault()
+    console.log(getVids)
     dispatch(fileSelect(event.target.files[0]))
   }
 
@@ -41,7 +43,7 @@ const Video = () => {
     }
   }
 
-  const logoutHanlder = () => {
+  const logoutHandler = () => {
     dispatch(logout())
   }
   /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */
@@ -61,11 +63,18 @@ const Video = () => {
           <button onClick={onUpload}>
             UPLOAD
           </button>
-          <button type='submit' onClick={logoutHanlder}>
+          <button type='submit' onClick={logoutHandler}>
             Logout
           </button>
         </div>
-        <VidElement />
+        <ul>
+          {videos.map(video =>
+            <li key={video.id}>
+              <VidElement video={video} />
+            </li>
+          )}
+        </ul>
+
       </div>
     )
   }

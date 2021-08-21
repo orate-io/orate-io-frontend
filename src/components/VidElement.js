@@ -7,7 +7,9 @@ import propTypes from 'prop-types'
 const VidElement = ({ video }) => {
   return (
     <div>
-      <p>{ video }</p>
+      <p> {video.video.name} </p>
+      <p> {video.video.url} </p>
+      <p> {video.video.id} </p>
     </div>
   )
 }
