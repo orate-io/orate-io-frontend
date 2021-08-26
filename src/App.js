@@ -5,28 +5,24 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route/*,
+  Link*/
 } from 'react-router-dom'
-import Login from './components/Login.js'
+/*import Login from './components/Login.js'
 import Signup from './components/Signup.js'
-import Video from './components/Video.js'
-
+import Video from './components/Video.js'*/
+import ClientLogin from './components/Client/ClientLogin'
 const App = () => {
 
   return (
     <Router>
-      <Link to="/login">LOGIN</Link>
-      <Link to="/videos">VIDEOS</Link>
       <Switch>
         <Route path="/login">
-          <Login />
-          <Signup />
         </Route>
         <Route path="/videos">
-          <Video />
         </Route>
       </Switch>
+      <ClientLogin/>
     </Router>
   )
 }
