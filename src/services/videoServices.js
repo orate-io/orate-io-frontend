@@ -2,6 +2,7 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
+
 const baseUrl = (window.env && window.env.URL)
   ? window.env.URL
   : 'http://localhost:3001/'
@@ -37,7 +38,12 @@ const createVid = async (vidObj) => {
     name: vidObj.name,
     id: videoId
   }
+
+  console.log('pre post')
+
   const response = await axios.post(`${baseUrl}video`, postBody, config)
+
+  console.log(response)
 
   return response
 }

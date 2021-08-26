@@ -27,7 +27,6 @@ const Video = () => {
    */
   const handleChange = (event) => {
     event.preventDefault()
-    console.log(getVids)
     dispatch(fileSelect(event.target.files[0]))
   }
 
@@ -36,10 +35,10 @@ const Video = () => {
    *
    * @param {object} event Prevents page from refreshing prematurely.
    */
-  const onUpload = (event) => {
-    event.preventDefault()
-    if ((getFile.name.split('.').pop() === 'mp4')) {
-      videoServices.createVid(getFile)
+  const onUpload = async () => {
+    if (getFile.name.split('.').pop() === 'mp4') {
+      await videoServices.createVid(getFile)
+      console.log('aftercreate')
     }
   }
 
@@ -68,7 +67,7 @@ const Video = () => {
           </button>
         </div>
         <ul>
-          {videos.map(video =>
+          {getVids.map(video =>
             <li key={video.id}>
               <VidElement video={video} />
             </li>
