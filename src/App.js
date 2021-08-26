@@ -7,11 +7,10 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import Login from './components/Login.js'
-import Signup from './components/Signup.js'
 import Video from './components/Video.js'
 import { useDispatch } from 'react-redux'
 import { tokenLogin } from './reducers/loginReducer.js'
+import ClientLogin from './components/Client/ClientLogin'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,13 +25,12 @@ const App = () => {
     <Router>
       <Switch>
         <Route path="/login">
-          <Login/>
         </Route>
-        <Route path="/signup">
-          <Signup/>
+        <Route path="/videos">
         </Route>
         <Video/>
       </Switch>
+      <ClientLogin/>
     </Router>
   )
 }
