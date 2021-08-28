@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fileSelect } from '../reducers/fileReducer'
-import { fileInit } from '../reducers/videoReducer'
+import { vidInit } from '../reducers/videoReducer'
 import videoServices from '../services/videoServices'
 import VidElement from './VidElement'
 import { logout } from '../reducers/loginReducer'
@@ -38,8 +38,12 @@ const Video = () => {
   const onUpload = async (event) => {
     event.preventDefault()
     if (getFile.name.split('.').pop() === 'mp4') {
-      await videoServices.createVid(getFile)
-      console.log('aftercreate')
+      const createResponse = await videoServices.createVid(getFile)
+      console.log(createResponse)
+      if (createResponse.status === 201){
+        dispatch(vidInit())
+      }
+
     }
   }
 
