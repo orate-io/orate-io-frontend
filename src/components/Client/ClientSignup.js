@@ -1,5 +1,5 @@
 /**
- * @file Contains the client front end code for the login page.
+ * @file Contains the client front end code for the signup page.
  */
 import React from 'react'
 import propTypes from 'prop-types'
@@ -25,7 +25,7 @@ const ClientLogin = ({ handleSubmit }) => {
                 <div className='rounded-t mb-0 px-6 py-6'>
                   <div className='text-center mb-3'>
                     <h6 className='text-gray-600 text-sm font-bold'>
-                      Sign in with
+                      Sign up with
                     </h6>
                   </div>
                   <div className='btn-wrapper text-center'>
@@ -58,9 +58,25 @@ const ClientLogin = ({ handleSubmit }) => {
                 </div>
                 <div className='flex-auto px-4 lg:px-10 py-10 pt-0'>
                   <div className='text-gray-500 text-center mb-3 font-bold'>
-                    <small>Or sign in with credentials</small>
+                    <small>Or sign up with credentials</small>
                   </div>
                   <form onSubmit={handleSubmit}>
+                    <div className='relative w-full mb-3'>
+                      <label
+                        className='block uppercase text-gray-700 text-xs font-bold mb-2'
+                        htmlFor='grid-password'
+                      >
+                          Email
+                      </label>
+                      <input
+                        type='text'
+                        name='email'
+                        className='border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full'
+                        placeholder='Email'
+                        style={{ transition: 'all .15s ease' }}
+                      />
+                    </div>
+
                     <div className='relative w-full mb-3'>
                       <label
                         className='block uppercase text-gray-700 text-xs font-bold mb-2'
@@ -81,7 +97,9 @@ const ClientLogin = ({ handleSubmit }) => {
                       <label
                         className='block uppercase text-gray-700 text-xs font-bold mb-2'
                         htmlFor='grid-password'
-                      />
+                      >
+                        Password
+                      </label>
                       <input
                         type='password'
                         name='password'
@@ -91,62 +109,49 @@ const ClientLogin = ({ handleSubmit }) => {
                       />
                     </div>
 
-                    <div>
-                      <label className='inline-flex items-center cursor-pointer'>
-                        <input
-                          id='customCheckLogin'
-                          type='checkbox'
-                          name='remember'
-                          className='form-checkbox border-0 rounded text-gray-800 ml-1 w-5 h-5'
-                          style={{ transition: 'all .15s ease' }}
-                        />
-                        <span className='ml-2 text-sm font-semibold text-gray-700'>
-                          Remember me
-                        </span>
-                      </label>
+                    <div className='relative w-full mb-3'>
+                      <label
+                        className='block uppercase text-gray-700 text-xs font-bold mb-2'
+                        htmlFor='grid-password'
+                      />
+                      <input
+                        type='password'
+                        name='passwordRetype'
+                        className='border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full'
+                        placeholder='Re-type Password'
+                        style={{ transition: 'all .15s ease' }}
+                      />
                     </div>
 
-                    <div className='text-center mt-2'>
+                    <div className='text-center mt-6'>
                       <button
                         className='bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full'
                         type='submit'
                         style={{ transition: 'all .15s ease' }}
                       >
-                        Login
+                        Sign Up
                       </button>
                     </div>
-                  </form>
-
-                  <div className='mt-6'>
-                    <label
-                      className='block uppercase text-gray-700 text-xs font-bold mb-2'
-                      htmlFor='grid-password'
-                    >
-                      {'Don\'t have an account?'}
-                    </label>
-                    <div className='text-center '>
-                      <Link to={'/signup'}>
-                        <button
-                          className='bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full'
-                          type='submit'
-                          style={{ transition: 'all .15s ease' }}
-                        >
-                          Sign Up
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className='flex flex-wrap mt-6'>
-                    <div className='w-1/2'>
-                      <a
-                        href='#pablo'
-                        onClick={e => e.preventDefault()}
-                        className='text-gray-900'
+                    <div className='mt-6'>
+                      <label
+                        className='block uppercase text-gray-700 text-xs font-bold mb-2'
+                        htmlFor='grid-password'
                       >
-                        <small>Forgot password?</small>
-                      </a>
+                        Already have an account?
+                      </label>
+                      <div className='text-center '>
+                        <Link to={'/login'}>
+                          <button
+                            className='bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full'
+                            type='submit'
+                            style={{ transition: 'all .15s ease' }}
+                          >
+                            Login
+                          </button>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

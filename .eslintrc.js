@@ -49,7 +49,6 @@ module.exports = {
     'jsdoc/require-property-description': 1,
     'jsdoc/require-property-name': 1,
     'jsdoc/require-property-type': 1,
-    'jsdoc/require-returns': 1,
     'jsdoc/require-returns-check': 1,
     'jsdoc/require-returns-description': 1,
     'jsdoc/require-returns-type': 1,
@@ -72,6 +71,7 @@ module.exports = {
     'comma-spacing': ['warn', { 'before': false, 'after': true }],
     'array-bracket-spacing': ['warn', 'never'],
     'eol-last': 1,
-    'comma-dangle': ['warn', 'never']
+    'comma-dangle': ['warn', 'never'],
+    'no-fallthrough': 0
   }
 }
