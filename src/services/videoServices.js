@@ -42,7 +42,7 @@ const createVid = async (vidObj) => {
   console.log('pre post')
 
   const response = await axios.post(`${baseUrl}video`, postBody, config)
-
+  console.log('post post')
   console.log(response)
 
   return response

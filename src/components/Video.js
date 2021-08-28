@@ -35,7 +35,8 @@ const Video = () => {
    *
    * @param {object} event Prevents page from refreshing prematurely.
    */
-  const onUpload = async () => {
+  const onUpload = async (event) => {
+    event.preventDefault()
     if (getFile.name.split('.').pop() === 'mp4') {
       await videoServices.createVid(getFile)
       console.log('aftercreate')
