@@ -8,7 +8,7 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-//import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Star_Wars_BB8 from '../assets/images/Star_Wars_BB8.svg'
 
@@ -23,7 +23,7 @@ const PageNotFound = () => {
           <Col>
             <p style={{ textAlign:'center' }}>
                 Page Not Found Beep Boop!
-              <a href="/">Go to Home </a>
+              <Link to="/"> Go to Home </Link>
             </p>
           </Col>
         </Row>

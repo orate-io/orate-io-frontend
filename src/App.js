@@ -16,13 +16,6 @@ import Video from './components/Video.js'
 const App = () => {
 
   return (
-<<<<<<< HEAD
-    <div>
-      <Login />
-      <Signup />
-      <PageNotFound />
-    </div>
-=======
     <Router>
       <Link to="/login">LOGIN</Link>
       <Link to="/videos">VIDEOS</Link>
@@ -34,9 +27,11 @@ const App = () => {
         <Route path="/videos">
           <Video />
         </Route>
+        <Route path="*">
+          <PageNotFound />
+        </Route>
       </Switch>
     </Router>
->>>>>>> f59007a061fceb557c9cd319e94c793a8e4b06f4
   )
 }
 
