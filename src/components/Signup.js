@@ -44,38 +44,20 @@ const Signup = () => {
     <form onSubmit={handleSubmit} >
       <div>
         username:
-        <input
-          type = 'text'
-          name = 'username'
-
-        />
+        <input type = 'text' name = 'username' />
       </div>
-
       <div>
         email:
-        <input
-          type = 'text'
-          name = 'email'
-
-        />
+        <input type = 'text' name = 'email' />
       </div>
-
       <div>
         password:
-        <input
-          type = 'password'
-          name = 'password'
-        />
+        <input type = 'password' name = 'password' />
       </div>
-
       <div>
         password resubmit:
-        <input
-          type = 'password'
-          name = 'passwordResub'
-        />
+        <input type = 'password' name = 'passwordResub' />
       </div>
-
       <button type = "submit">sign up</button>
     </form>
   )
