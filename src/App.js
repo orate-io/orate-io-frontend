@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
+import HeroHome from './components/HeroHome.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import Video from './components/Video.js'
@@ -33,6 +34,7 @@ const App = () => {
         </Route>
         <Video/>
       </Switch>
+      <HeroHome />
     </Router>
   )
 }
