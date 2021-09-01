@@ -9,6 +9,7 @@ import {
   Link
 } from 'react-router-dom'
 import Login from './components/Login.js'
+import PageNotFound from './components/PageNotFound.js'
 import Signup from './components/Signup.js'
 import Video from './components/Video.js'
 
@@ -25,6 +26,9 @@ const App = () => {
         </Route>
         <Route path="/videos">
           <Video />
+        </Route>
+        <Route path="*">
+          <PageNotFound />
         </Route>
       </Switch>
     </Router>

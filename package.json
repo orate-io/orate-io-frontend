@@ -54,7 +54,9 @@
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsdoc": "^35.3.2",
     "eslint-plugin-react": "^7.24.0",
+    "file-loader": "^6.1.1",
     "jsdocs": "^0.0.1",
+    "react-router-dom": "^5.2.0",
     "redux-devtools-extension": "^2.13.9"
   },
   "react-dotenv": {
