@@ -19,7 +19,6 @@ import app from '../services/userService'
    * it is clicked, token should be deleted.
    */
 test('Click logout after entering user login information', () => {
-  const localUser = [{username: 'Testuser', password: '12345678'}]
   /**
    * Not sure if token should be tested in this way.
    */
@@ -38,8 +37,8 @@ test('Click logout after entering user login information', () => {
 
 /**
    * In this test, rendering login form when there are no logged in user in local storage. However, when I am running test, a problem is showing up. In userService.js,
-   * line 38, I am not sure if the returned response.data contain token, based on the description, loginObject should contain username and password and token should 
-   * be stored in local storage. Same thing might happen again for signup form. Waiting to find out a solution
+   * line 38, I am not sure if the returned response.data contain token, based on the description, loginObject should contain username and password and token should
+   * be stored in local storage. Same thing might happen again for signup form. Waiting to find out a solution.
    */
 describe('login reducer', () => {
   test('login when not in local storage, return new state', () => {
