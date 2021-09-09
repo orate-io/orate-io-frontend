@@ -6,23 +6,31 @@ const baseUrl = (window.env && window.env.URL)
   ? window.env.URL
   : 'http://localhost:3001/'
 
-// eslint-disable-next-line no-unused-vars
-let token = null
+
+const verifyToken = (token) => {
+  const response = axios.post(`${baseUrl}login/verify`, { token: token })
+  return response.data
+}
+
 /**
  * Sets token in local storage or deletes it.
  *
  * @function
  * @param {object} newToken Sets the local storage as the given new token, deletes if new token is null.
+ * @param {boolean} remember Boolean representing whether the state should be stored in local storage.
  */
-const setToken = (newToken) => {
-  if (newToken){
+const setToken = (newToken, remember) => {
+  let token = null
+  if (newToken) {
     token = `Bearer ${newToken}`
-    window.localStorage.setItem(
-      'loggedUser', token
-    )
+    if (remember) {
+      window.localStorage.setItem(
+        'loggedUser', token
+      )
+    }
   }
   else {
-    token = null
+    window.localStorage.removeItem('loggedUser')
   }
 }
 
@@ -50,4 +58,4 @@ const signupReq = async (signupObject) => {
   return response.data
 }
 
-export default { loginReq, signupReq, setToken }
+export default { loginReq, signupReq, setToken, verifyToken }

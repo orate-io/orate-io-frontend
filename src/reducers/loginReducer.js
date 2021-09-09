@@ -14,9 +14,17 @@ import userService from '../services/userService'
 export const loginReducer = (state = { }, action) => {
   let newState = state
   switch(action.type){
+  case 'TOKENLOGIN':
+    return {
+      ...state,
+      token: action.token
+    }
   case 'LOGIN':
-    newState = action.loginReq.token
-    userService.setToken(newState)
+    newState = {
+      ...state,
+      token: action.loginReq.token
+    }
+    userService.setToken(newState.token, action.remember)
     return newState
   case 'LOGOUT':
     newState = {}
@@ -27,19 +35,29 @@ export const loginReducer = (state = { }, action) => {
   }
 }
 
+export const tokenLogin = (token) => {
+  return async dispatch => {
+    dispatch({
+      type: 'TOKENLOGIN',
+      token
+    })
+  }
+}
+
 /**
  * Login Takes the object received and sends a post request to the login service where a token is received.
  * The token is stored in the local storage, and dispatched to the reducer.
  *
- * @param {object} newObj The login info received from the frontend.
+ * @param {object} loginRequest The login info received from the frontend.
+ * @param {boolean} remember Should the user token be stored in the local storage?
  * @returns {object} Dispatches the type login and the token to the reducer.
  */
-export const login = (newObj) => {
+export const login = (loginRequest, remember) => {
   return async dispatch => {
-    const loginReq = await userService.loginReq(newObj)
     dispatch({
       type: 'LOGIN',
-      loginReq
+      loginRequest,
+      remember
     })
   }
 }
@@ -51,9 +69,8 @@ export const login = (newObj) => {
  */
 export const logout = () => {
   return async dispatch => {
-    window.localStorage.removeItem('loggedUser')
     dispatch({
-      type:'LOGOUT'
+      type: 'LOGOUT'
     })
   }
 }
