@@ -39,7 +39,6 @@ const Video = () => {
     event.preventDefault()
     if (getFile.name.split('.').pop() === 'mp4') {
       const createResponse = await videoServices.createVid(getFile)
-      console.log(createResponse)
       if (createResponse.status === 201){
         dispatch(vidInit())
       }
