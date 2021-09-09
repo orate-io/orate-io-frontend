@@ -1,14 +1,12 @@
 /**
- * @file Configuration file for Tailwind CSS.
+ * @file Tailwind configuration file.
  */
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  purge: [],
+  darkMode: false,
   theme: {
     extend: {}
   },
-  variants: {
-    extend: {}
-  },
+  variants: {},
   plugins: []
 }
