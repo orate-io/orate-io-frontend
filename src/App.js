@@ -7,10 +7,9 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import HeroHome from './components/HeroHome.js'
+import Home from './components/Home.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
-import Video from './components/Video.js'
 import { useDispatch } from 'react-redux'
 import { tokenLogin } from './reducers/loginReducer.js'
 
@@ -32,9 +31,8 @@ const App = () => {
         <Route path="/signup">
           <Signup/>
         </Route>
-        <Video/>
+        <Home />
       </Switch>
-      <HeroHome />
     </Router>
   )
 }
