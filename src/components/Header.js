@@ -1,3 +1,6 @@
+/**
+ * @file Contains client code for the header of the landing page.
+ */
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -5,7 +8,7 @@ const Header = () => {
 
   const [top, setTop] = useState(true)
 
-  // detect whether user has scrolled the page down by 10px 
+  /* Detect whether user has scrolled the page down by 10px */
   useEffect(() => {
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true)

@@ -1,3 +1,6 @@
+/**
+ * @file Contains the client code for the hero content on the home page.
+ */
 import React from 'react'
 
 const HeroHome = () => {

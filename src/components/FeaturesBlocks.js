@@ -1,3 +1,6 @@
+/**
+ * @file Contains client code for blocks outlining features on the home page.
+ */
 import React from 'react'
 
 const FeaturesBlocks = () => {

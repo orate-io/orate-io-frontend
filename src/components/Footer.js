@@ -1,3 +1,6 @@
+/**
+ * @file Contains the client code for the footer compoent of the home page.
+ */
 import React from 'react'
 import { Link } from 'react-router-dom'
 
