@@ -28,19 +28,63 @@ const Signup = () => {
     event.target.password.value = ''
     event.target.passwordRetype.value = ''
 
+<<<<<<< HEAD
     if (password === passwordRetype){
+=======
+    if (password !== passwordResub){
+      /* palceholder */
+      alert('Passwords do not match! Please try again.')
+      // event.target.isValid.value = 'Password doesnt match'
+    }
+    else {
+      // event.target.isValid.value = 'pass matches!'
+>>>>>>> 8a1af75 (Video uploading, and error handling)
       const signupObj = {
         username: username,
         email: email,
         password: password
       }
+<<<<<<< HEAD
       await userService.signupReq(signupObj)
       history.push('/login')
+=======
+      const res = await userService.signupReq(signupObj)
+      if(res){
+        alert('account succesfully created')
+      }
+      else{
+        alert('account not created, username or email may already be in use')
+      }
+
+>>>>>>> 8a1af75 (Video uploading, and error handling)
     }
 
   }
   return (
+<<<<<<< HEAD
     <ClientSignup handleSubmit={handleSubmit}/>
+=======
+    <form onSubmit={handleSubmit} >
+      <div>
+        username:
+        <input type = 'text' name = 'username' />
+      </div>
+      <div>
+        email:
+        <input type = 'text' name = 'email' />
+      </div>
+      <div>
+        password:
+        <input type = 'password' name = 'password' />
+      </div>
+      {/* <textarea type = 'text' name = 'isValid' /> */}
+      <div>
+        password resubmit:
+        <input type = 'password' name = 'passwordResub' />
+      </div>
+      <button type = "submit">sign up</button>
+    </form>
+>>>>>>> 8a1af75 (Video uploading, and error handling)
   )
 }
 

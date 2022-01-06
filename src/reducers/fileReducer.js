@@ -3,7 +3,7 @@
  */
 
 /**
- * File reducer sets the state of the file. Case LOGIN sets the file state as the newly received fileObj.
+ * File reducer sets the state of the file. Case SELECT sets the file state as the newly received fileObj.
  *
  * @param {object} state Initial state is empty.
  * @param {string} action Imports the file and action type the user posted.

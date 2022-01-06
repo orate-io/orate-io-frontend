@@ -12,7 +12,6 @@ import videoServices from '../services/videoServices'
  * @returns {object} Returns the state.
  */
 export const videoReducer = (state = [], action) => {
-  console.log(action.vidList)
   switch(action.type){
   case 'GET_ALL':
     return action.vidList
@@ -30,10 +29,8 @@ export const videoReducer = (state = [], action) => {
  */
 export const vidInit = () => {
   return async dispatch => {
-    console.log('in dispatch')
     const vidJSON = await videoServices.getAll()
     const vidList = vidJSON.data
-    console.log(vidList)
     dispatch({
       type: 'GET_ALL',
       vidList

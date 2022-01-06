@@ -30,6 +30,9 @@ export const loginReducer = (state = { }, action) => {
     newState = {}
     userService.setToken()
     return newState
+  case 'ERROR':
+    newState = { error: 'username or password incorrect' }
+    return newState
   default:
     return state
   }
@@ -54,11 +57,26 @@ export const tokenLogin = (token) => {
  */
 export const login = (loginRequest, remember) => {
   return async dispatch => {
+<<<<<<< HEAD
     dispatch({
       type: 'LOGIN',
       loginRequest,
       remember
     })
+=======
+    const loginReq = await userService.loginReq(newObj)
+    if (loginReq) {
+      dispatch({
+        type: 'LOGIN',
+        loginReq
+      })
+    }
+    else{
+      dispatch({
+        type: 'ERROR'
+      })
+    }
+>>>>>>> 8a1af75 (Video uploading, and error handling)
   }
 }
 
