@@ -13,7 +13,7 @@ import videoServices from '../services/videoServices'
  */
 export const videoReducer = (state = [], action) => {
   switch(action.type){
-  case 'INIT':
+  case 'GET_ALL':
     return action.vidList
   default:
     return state
@@ -23,13 +23,15 @@ export const videoReducer = (state = [], action) => {
 /**
  * File init is the action creator that sends a get request for the videos and receives an array that gets dispatched to the reducer.
  *
+ * @param {object} token User token to be sent to backend.
  * @returns {object} Dispatches action with the INIT action type and an array of videos.
  */
-export const fileInit = () => {
+export const vidInit = (token) => {
   return async dispatch => {
-    const vidList = videoServices.getAll()
+    const vidJSON = await videoServices.getAll(token)
+    const vidList = vidJSON.data
     dispatch({
-      type:'INIT',
+      type: 'GET_ALL',
       vidList
     })
   }

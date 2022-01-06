@@ -4,6 +4,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fileSelect } from '../reducers/fileReducer'
+import { vidInit } from '../reducers/videoReducer'
 import videoServices from '../services/videoServices'
 import VidElement from './VidElement'
 import { logout } from '../reducers/loginReducer'
@@ -17,6 +18,7 @@ const Video = () => {
 
   /* Gets the state from the combined reducer. */
   const getFile = useSelector(state => state.file)
+  const getVids = useSelector(state => state.videos)
   const getUser = useSelector(state => state.login)
 
   /**
@@ -34,14 +36,18 @@ const Video = () => {
    *
    * @param {object} event Prevents page from refreshing prematurely.
    */
-  const onUpload = (event) => {
+  const onUpload = async (event) => {
     event.preventDefault()
-    if ((getFile.name.split('.').pop() === 'mp4')) {
-      videoServices.createVid(getFile)
+    if (getFile.name.split('.').pop() === 'mp4') {
+      const createResponse = await videoServices.createVid(getFile, getUser.token)
+      if (createResponse.status === 201){
+        dispatch(vidInit(getUser.token))
+      }
+
     }
   }
 
-  const logoutHanlder = () => {
+  const logoutHandler = () => {
     dispatch(logout())
   }
   /* Checks if user is logged in, if true, then return the video page, if false, return an empty page */
@@ -61,11 +67,18 @@ const Video = () => {
           <button onClick={onUpload}>
             UPLOAD
           </button>
-          <button type='submit' onClick={logoutHanlder}>
+          <button type='submit' onClick={logoutHandler}>
             Logout
           </button>
         </div>
-        <VidElement />
+        <ul>
+          {getVids.map(video =>
+            <li key={video.id}>
+              <VidElement video={video} />
+            </li>
+          )}
+        </ul>
+
       </div>
     )
   }

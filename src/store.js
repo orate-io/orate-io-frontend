@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { loginReducer } from './reducers/loginReducer'
 import { fileReducer } from './reducers/fileReducer'
-import videoReducer from './reducers/videoReducer'
+import { videoReducer } from './reducers/videoReducer'
 
 const combinedReducer = combineReducers({
   login: loginReducer,

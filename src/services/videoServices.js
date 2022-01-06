@@ -2,6 +2,7 @@
  * @file UserService contains all the http requests to the backend.
  */
 import axios from 'axios'
+
 const baseUrl = (window.env && window.env.URL)
   ? window.env.URL
   : 'http://localhost:3001/'
@@ -10,11 +11,11 @@ const baseUrl = (window.env && window.env.URL)
  * Post request to /video url. Sends video in DataForm format.
  *
  * @function
+ * @param {object} token Token sent to backend for authentication.
  * @param {object} vidObj Video object the user provided.
  * @returns {object} Response from backend.
  */
-const createVid = async (vidObj) => {
-  const token = window.localStorage.getItem('loggedUser')
+const createVid = async (vidObj, token) => {
   const config = {
     headers: { Authorization: token }
   }
@@ -37,6 +38,7 @@ const createVid = async (vidObj) => {
     name: vidObj.name,
     id: videoId
   }
+
   const response = await axios.post(`${baseUrl}video`, postBody, config)
 
   return response
@@ -45,16 +47,16 @@ const createVid = async (vidObj) => {
 /**
  * Get request to /video URL.
  *
+ * @param {object} token Token sent to backend for authentication.
  * @function
  * @returns {object} VidList object that contains list of all videos.
  */
-const getAll = async () => {
-  const token = window.localStorage.getItem('loggedUser')
+const getAll = async (token) => {
   const config = {
     headers: { Authorization: token }
   }
-  const vidList = await axios.get(`${baseUrl}video`, config)
-  return vidList
+  const response = await axios.get(`${baseUrl}video`, config)
+  return response
 }
 
 export default { createVid, getAll }

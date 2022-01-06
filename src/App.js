@@ -12,6 +12,7 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import { useDispatch } from 'react-redux'
 import { tokenLogin } from './reducers/loginReducer.js'
+import Video from './components/Video.js'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -30,6 +31,9 @@ const App = () => {
         </Route>
         <Route path="/signup">
           <Signup/>
+        </Route>
+        <Route path="/videos">
+          <Video/>
         </Route>
         <Home />
       </Switch>

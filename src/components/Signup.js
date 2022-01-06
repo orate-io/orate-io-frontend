@@ -28,14 +28,28 @@ const Signup = () => {
     event.target.password.value = ''
     event.target.passwordRetype.value = ''
 
-    if (password === passwordRetype){
+    if (password !== passwordRetype){
+      /* palceholder */
+      alert('Passwords do not match! Please try again.')
+      // event.target.isValid.value = 'Password doesnt match'
+    }
+    else {
+      // event.target.isValid.value = 'pass matches!'
       const signupObj = {
         username: username,
         email: email,
         password: password
       }
-      await userService.signupReq(signupObj)
-      history.push('/login')
+
+      const res = await userService.signupReq(signupObj)
+      if(res){
+        alert('account succesfully created')
+        history.push('/login')
+      }
+      else{
+        alert('account not created, username or email may already be in use')
+      }
+
     }
 
   }

@@ -3,15 +3,17 @@
  * client front end code. Handles logging in using username and password.
  */
 import React  from 'react'
-import { useDispatch } from 'react-redux'
-import { login } from '../reducers/loginReducer'
+import { useSelector, useDispatch } from 'react-redux'
+import { login, logout } from '../reducers/loginReducer'
 import ClientLogin from './Client/ClientLogin'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
-import userService from '../services/userService'
+import { useHistory } from 'react-router-dom'
 
-const Login = ({ history }) => {
+const Login = () => {
   const dispatch = useDispatch()
+  const getUser = useSelector(state => state.login)
+  let history = useHistory()
   /**
    * Takes data from the forms, cretes an obejct with it, then sends it to the login reducer to make a request.
    *
@@ -26,22 +28,44 @@ const Login = ({ history }) => {
     event.target.username.value = ''
     event.target.password.value = ''
 
-    const userCreds = {
+    const newObj = {
       username: username,
       password: password
     }
 
-    try {
-      const loginResponse = await userService.loginReq(userCreds)
-      await dispatch(login(loginResponse, remember))
-      history.push('/')
-    } catch (error) {
-      /* User credentials incorrect */
+    console.log('newobj: ', newObj)
+    dispatch(login(newObj, remember))
+
+    if(getUser.error){
+      alert('username or password incorrect')
+    }
+    else{
+      history.push('/videos')
     }
   }
-  return (
-    <ClientLogin handleSubmit={handleSubmit}/>
-  )
+
+  /**
+   * Sends a logout dispatch to the action creator.
+   */
+  const logoutHandler = async () => {
+    dispatch(logout('empty'))
+    history.push('/')
+  }
+
+  /* renders a logout button if logged in, login form if otherwise */
+  let loggedIn = window.localStorage.getItem('loggedUser')
+  if (loggedIn && (getUser!==null)){
+    return(
+      <div>
+        <button type="submit" onClick={logoutHandler} > Logout </button>
+      </div>
+    )
+  }
+  else {
+    return (
+      <ClientLogin handleSubmit={handleSubmit}/>
+    )
+  }
 }
 
 Login.propTypes = {

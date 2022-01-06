@@ -41,9 +41,10 @@ const setToken = (newToken, remember) => {
  * @param {object} loginObject Username and password that user input.
  * @returns {object} LoginObject.
  */
-const loginReq = async (loginObject) => {
-  const response = await axios.post(`${baseUrl}login`, loginObject)
-  return response.data
+const loginReq = (loginObject) => {
+  return axios.post(`${baseUrl}login`, loginObject)
+    .then((response) => response.data)
+    .catch(() => undefined)
 }
 
 /**
@@ -54,8 +55,9 @@ const loginReq = async (loginObject) => {
  * @returns {object} LoginObject.
  */
 const signupReq = async (signupObject) => {
-  const response = await axios.post(`${baseUrl}signup`, signupObject)
-  return response.data
+  return axios.post(`${baseUrl}signup`, signupObject)
+    .then(response => response)
+    .catch(() => undefined)
 }
 
 export default { loginReq, signupReq, setToken, verifyToken }
