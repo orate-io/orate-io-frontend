@@ -11,7 +11,7 @@ const baseUrl = (window.env && window.env.URL)
  * Post request to /video url. Sends video in DataForm format.
  *
  * @function
- * @param token
+ * @param {object} token Token sent to backend for authentication.
  * @param {object} vidObj Video object the user provided.
  * @returns {object} Response from backend.
  */
@@ -47,7 +47,7 @@ const createVid = async (vidObj, token) => {
 /**
  * Get request to /video URL.
  *
- * @param token
+ * @param {object} token Token sent to backend for authentication.
  * @function
  * @returns {object} VidList object that contains list of all videos.
  */
