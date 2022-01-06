@@ -11,11 +11,11 @@ const baseUrl = (window.env && window.env.URL)
  * Post request to /video url. Sends video in DataForm format.
  *
  * @function
+ * @param token
  * @param {object} vidObj Video object the user provided.
  * @returns {object} Response from backend.
  */
-const createVid = async (vidObj) => {
-  const token = window.localStorage.getItem('loggedUser')
+const createVid = async (vidObj, token) => {
   const config = {
     headers: { Authorization: token }
   }
@@ -47,11 +47,11 @@ const createVid = async (vidObj) => {
 /**
  * Get request to /video URL.
  *
+ * @param token
  * @function
  * @returns {object} VidList object that contains list of all videos.
  */
-const getAll = async () => {
-  const token = window.localStorage.getItem('loggedUser')
+const getAll = async (token) => {
   const config = {
     headers: { Authorization: token }
   }

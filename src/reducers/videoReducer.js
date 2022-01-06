@@ -25,11 +25,12 @@ export const videoReducer = (state = [], action) => {
  *
  * @param fileObj
  * @param content
+ * @param token
  * @returns {object} Dispatches action with the INIT action type and an array of videos.
  */
-export const vidInit = () => {
+export const vidInit = (token) => {
   return async dispatch => {
-    const vidJSON = await videoServices.getAll()
+    const vidJSON = await videoServices.getAll(token)
     const vidList = vidJSON.data
     dispatch({
       type: 'GET_ALL',

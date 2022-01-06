@@ -17,12 +17,12 @@ export const loginReducer = (state = { }, action) => {
   case 'TOKENLOGIN':
     return {
       ...state,
-      token: action.token
+      token: 'Bearer ' + action.token
     }
   case 'LOGIN':
     newState = {
       ...state,
-      token: action.loginReq.token
+      token: 'Bearer ' + action.loginReq.token
     }
     userService.setToken(newState.token, action.remember)
     return newState
@@ -51,24 +51,18 @@ export const tokenLogin = (token) => {
  * Login Takes the object received and sends a post request to the login service where a token is received.
  * The token is stored in the local storage, and dispatched to the reducer.
  *
- * @param {object} loginRequest The login info received from the frontend.
+ * @param {object} newObj The login info received from the frontend.
  * @param {boolean} remember Should the user token be stored in the local storage?
  * @returns {object} Dispatches the type login and the token to the reducer.
  */
-export const login = (loginRequest, remember) => {
+export const login = (newObj, remember) => {
   return async dispatch => {
-<<<<<<< HEAD
-    dispatch({
-      type: 'LOGIN',
-      loginRequest,
-      remember
-    })
-=======
     const loginReq = await userService.loginReq(newObj)
     if (loginReq) {
       dispatch({
         type: 'LOGIN',
-        loginReq
+        loginReq,
+        remember
       })
     }
     else{
@@ -76,7 +70,6 @@ export const login = (loginRequest, remember) => {
         type: 'ERROR'
       })
     }
->>>>>>> 8a1af75 (Video uploading, and error handling)
   }
 }
 

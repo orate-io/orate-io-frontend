@@ -1,7 +1,7 @@
 /**
  * @file Allows user to pick and upload a file to the backend, also displays all the videos the user posted.
  */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fileSelect } from '../reducers/fileReducer'
 import { vidInit } from '../reducers/videoReducer'
@@ -18,6 +18,7 @@ const Video = () => {
 
   /* Gets the state from the combined reducer. */
   const getFile = useSelector(state => state.file)
+  const getVids = useSelector(state => state.videos)
   const getUser = useSelector(state => state.login)
 
   /**
@@ -38,9 +39,9 @@ const Video = () => {
   const onUpload = async (event) => {
     event.preventDefault()
     if (getFile.name.split('.').pop() === 'mp4') {
-      const createResponse = await videoServices.createVid(getFile)
+      const createResponse = await videoServices.createVid(getFile, getUser.token)
       if (createResponse.status === 201){
-        dispatch(vidInit())
+        dispatch(vidInit(getUser.token))
       }
 
     }
