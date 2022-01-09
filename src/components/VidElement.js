@@ -5,7 +5,6 @@ import React from 'react'
 import propTypes from 'prop-types'
 
 const VidElement = ({ video }) => {
-  console.log(video)
   return (
     <div>
       <video id="example_video_1" className="video-js vjs-default-skin"
