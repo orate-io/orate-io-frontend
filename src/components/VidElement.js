@@ -14,8 +14,8 @@ const VidElement = ({ video }) => {
         <source src={video.url} type='video/webm' />
       </video>
 
-      <p> {video.name} </p>
-      <p> {video.id} </p>
+      <h3> Video name: {video.name} </h3>
+      <p> Video transcript: {video.transcription} </p>
     </div>
   )
 }
