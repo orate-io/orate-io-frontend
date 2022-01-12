@@ -32,8 +32,6 @@ const Login = () => {
       username: username,
       password: password
     }
-
-    console.log('newobj: ', newObj)
     dispatch(login(newObj, remember))
 
     if(getUser.error){

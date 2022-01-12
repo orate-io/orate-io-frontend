@@ -5,7 +5,6 @@ import React from 'react'
 import propTypes from 'prop-types'
 
 const VidElement = ({ video }) => {
-  console.log(video)
   return (
     <div>
       <video id="example_video_1" className="video-js vjs-default-skin"
@@ -15,8 +14,8 @@ const VidElement = ({ video }) => {
         <source src={video.url} type='video/webm' />
       </video>
 
-      <p> {video.name} </p>
-      <p> {video.id} </p>
+      <h3> Video name: {video.name} </h3>
+      <p> Video transcript: {video.transcription} </p>
     </div>
   )
 }
